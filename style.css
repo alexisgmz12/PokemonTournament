@@ -1,0 +1,261 @@
+body{
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(darkblue 0%, black 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bodyStart{
+    height: 100%;
+    display: block;
+}
+
+.pokemonNombre{
+    height: 200px;
+    width: 400px;
+   animation: pokemonNombreAnim 5s;    
+}
+
+@keyframes pokemonNombreAnim{
+    0%{
+        transform: translate(0,-600%);
+        opacity: 0;
+    }
+    100%{
+        transform: translate(0,0);
+        opacity: 1;
+    }
+}
+
+.pokeBola{
+    height: 140px;
+    width: 130px;
+    animation: pokeBolaAnim 5s ;
+}
+
+@keyframes pokeBolaAnim{
+    0%{
+        opacity: 0;
+    }
+    15%{
+        opacity:0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.torneoNombre{
+    height: 200px;
+    width: 400px;
+    animation: torneoAnim 5s;
+}
+
+@keyframes torneoAnim{
+    0%{
+        transform: translate(0,600%);
+        opacity: 0;
+
+    }
+    100%{
+        transform: translate(0,0);
+        opacity: 1;
+
+    }
+}
+
+.btnComenzar{
+    animation: btnComenzar 8s;
+}
+@keyframes btnComenzar{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.bodyComenzar{
+    display: none;
+    background-image: url("https://image.shutterstock.com/image-vector/boxing-ring-arena-floodlights-vector-260nw-772486333.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 120%;
+    padding: 20px;
+    height: fit-content;
+    width: 100%;}
+
+.contenedorPokemon{
+    background: black;
+    width: 500px;
+    height: 1000px;
+    margin: 15px;
+}
+
+.divScroll{
+    background: black;
+    display: block;
+    height: 800px;
+    width: 800px;
+    overflow-x: hidden; 
+    overflow-y: auto; 
+}
+
+.principal-container{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+​
+.card-pok{
+    width: 10rem;
+}
+​
+.overlay-pok {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: black;
+  }
+​
+.card-pok:hover .overlay-pok{
+    opacity: 0.4;
+}
+
+.pok-container{
+    padding: 10px 5px 10px 5px;
+}
+
+.pok-description{
+    text-align: justify;
+    text-justify: inter-word;
+}
+​
+.id-pok{
+    display: none;
+}
+​
+
+.modal-header{
+    
+}
+
+.peleaDiv{
+    height: 100vh;
+    width: 100%;
+    display: none;
+    background-image: url("https://image.shutterstock.com/image-vector/boxing-ring-arena-floodlights-vector-260nw-772486333.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 120%;
+}
+
+.peleaDivImg{
+    display: flex;
+    justify-content: space-around;
+}
+
+.ganador1Div{
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(to bottom, red 0%, orange 50%, yellow 100%);
+    background-size: 100% 250%;
+    display: none;
+    justify-content: center;
+    align-content: space-around;
+}
+
+.ganador2Div{
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(to bottom, blue 0%, lightblue 30%, rgb(178, 239, 247) 100%);
+    background-size: 100% 250%;
+    display: none;
+    justify-content: center;
+    align-content: space-around;
+}
+
+.campoJ1{
+animation: campoJ1 1s ;
+}
+
+@keyframes campoJ1{
+    0%{
+        transform: translate(-500px,0);
+    }
+
+    90%{
+        transform: translate(200px,0);
+    }
+
+    100%{
+        transform: translate(0,0);
+    }
+}
+
+.campoJ2{
+    animation: campoJ2 1s ;
+}
+    
+@keyframes campoJ2{
+        0%{
+            transform: translate(500px,0);
+        }
+    
+        90%{
+            transform: translate(-200px,0);
+        }
+    
+        100%{
+            transform: translate(0,0);
+        }
+}
+
+.imgFinal{
+    animation: imgAnimation 2s infinite 2s;
+}
+
+@keyframes imgAnimation{
+    0%{
+        transform: rotate3d(1,0,0,-30deg);
+    }
+
+    50%{
+        transform: rotate3d(0,1,0,30deg);
+    }
+    100%{
+        transform: rotate3d(1,0,0,-30deg);
+
+    }
+
+}
+
+.btnFinal{
+    animation: btnFinal 3s infinite 2s;
+}
+
+@keyframes btnFinal{
+    0%{
+        transform: rotateZ(0deg);
+    }
+    20%{
+        transform: rotateZ(10deg);
+    }
+    40%{
+    }
+    70%{
+        transform: rotateZ(-10deg);
+    }
+    100%{
+    }
+}

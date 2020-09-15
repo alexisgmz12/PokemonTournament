@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png"
+        href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Pokebola-pokeball-png-0.png/769px-Pokebola-pokeball-png-0.png" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Pokémon Tournament</title>
+</head>
+
+<body>
+
+    <audio autoplay controls id="audio">
+        <source  src="cancion1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!--Empieza-->
+    <div class="bodyStart" id="bodyStartID">
+        <!--Img pokemon-->
+        <div class="d-flex justify-content-center">
+            <img class="pokemonNombre"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pokémon_logo.svg/1200px-International_Pokémon_logo.svg.png"
+                alt="logo pokemon">
+        </div>
+
+        <!--Img pokebola-->
+        <div class="d-flex justify-content-center ">
+            <img class="pokeBola"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Pokebola-pokeball-png-0.png/769px-Pokebola-pokeball-png-0.png"
+                alt="logo pokemon">
+        </div>
+
+        <!--Img tournament-->
+        <div class="d-flex justify-content-center">
+            <img class="torneoNombre"
+                src="https://bsbproduction.s3.amazonaws.com/portals/27433/images/graphics/tournaments.png"
+                alt="logo pokemon">
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <button type="button" class="btn btn-outline-light btnComenzar h1" onclick="jugador1()">
+                Comenzar pelea!
+            </button>
+        </div>
+    </div>
+
+    <!--Seleccion Pokemon-->
+    <div class="bodyComenzar" id="seleccionPokemonDiv">
+
+        <!--Jugadores-->
+        <div class="d-flex pt-3">
+            <div class="bg-danger rounded-pill text-right text-white h1 w-50" id="jugador1Nombre">
+                <div class="mr-5"> Jugador 1</div>
+            </div>
+            <div class="bg-info rounded-pill text-left text-white h1 w-50" id="jugador2Nombre">
+                <div class="ml-5"> Jugador 2</div>
+            </div>
+        </div>
+
+        <!--Listapokemon-->
+        <h2 class="text-light text-center" id="Instrucciones">Jugador 1 escoge tu pokémon</h2>
+        <div class="d-flex justify-content-center" id="listaPokemon">
+
+            <div class="divScroll">
+                <main class="container">
+                    <div class="row" id="card-container">
+                </main>
+            </div>
+        </div>
+
+    </div>
+
+    <!--Pelea-->
+    <div class="peleaDiv" id="peleadiv">
+        <!--Jugadores-->
+        <div class="d-flex pt-3">
+            <div class="bg-danger rounded-pill text-right text-white h1 w-50" id="jugador1Nombre">
+                <div class="mr-5"> Jugador 1</div>
+            </div>
+            <div class="bg-info rounded-pill text-left text-white h1 w-50" id="jugador2Nombre">
+                <div class="ml-5"> Jugador 2</div>
+            </div>
+        </div>
+        <h2 class="text-light text-center" id="InstruccionesPelea">A pelear</h2>
+
+        <!--Mostrar Pokemons y botones-->
+        <div class="peleaDivImg">
+
+            <!--Campo jugador1-->
+            <div class="border border-danger campoJ1">
+                <div class="progress border border-danger">
+                    <div class="progress-bar bg-success" role="progressbar" id="progressVidaJ1" aria-valuenow="50"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <img id="pokemonJugador1Id" src="img-to-remplace" alt="Pokemon Jugador1">
+                <div class="d-flex  justify-content-around">
+                    <button class="btn btn-danger" id="botonAtacarJ1" onclick="botonPeleaAtacarJ1()">Atacar</button>
+
+                    <button class="btn btn-success" id="botonDefenderJ1"
+                        onclick="botonPeleaDefenderJ1()">Defender</button>
+
+                    <button class="btn btn-warning" id="botonDerribarJ1"
+                        onclick="botonPeleaDerribarJ1()">Derribar</button>
+
+                </div>
+            </div>
+
+            <!--Campo jugador2-->
+            <div class="border border-primary campoJ2">
+                <div class="progress border border-primary">
+                    <div class="progress-bar  bg-success " role="progressbar" id="progressVidaJ2" aria-valuenow="75"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <img id="pokemonJugador2Id" src="img-to-remplace" alt="Pokemon Jugador2">
+                <div class="d-flex  justify-content-around">
+                    <button class="btn btn-danger" onclick="botonPeleaAtacarJ2()">Atacar</button>
+
+                    <button class="btn btn-success" onclick="botonPeleaDefenderJ2()">Defender</button>
+
+                    <button class="btn btn-warning" onclick="botonPeleaDerribarJ2()">Derribar</button>
+
+                </div>
+            </div>
+        </div>
+        <!--Texto de ganador de round-->
+        <h2 class="text-dark text-center mt-3 mb-3" id="resultadoRound"></h2>
+
+    </div>
+
+
+
+    <!--Felicidades J1-->
+    <div class="ganador1Div" id="winnerDiv1">
+        <h2 class="text-white h1 text-center pt-3 mb-3 campoJ1">!!!Felicidades Jugador 1!!!</h2>
+        <div class="d-flex justify-content-center mt-3 mb-3">
+            <img class="imgFinal" src="image-to-remplace" alt="Imagen de ganador 1" id="winnerImage">
+        </div>
+        <div class="d-flex justify-content-center mt-3 mb-3">
+            <button class="button bg-warning h1 rounded-pill btnFinal" onclick="jugador1()">¿Quieres jugar de
+                nuevo?</button>
+        </div>
+    </div>
+
+    <!--Felicidades J2-->
+    <div class="ganador2Div" id="winnerDiv2">
+        <h2 class="text-white h1 text-center pt-3 mb-3 campoJ2">!!!Felicidades Jugador 2!!!</h2>
+        <div class="d-flex justify-content-center mt-3 mb-3">
+            <img class="imgFinal" src="image-to-remplace" alt="Imagen de ganador 2" id="winnerImage2">
+        </div>
+        <div class="d-flex justify-content-center mt-3 mb-3">
+            <button class="button bg-warning h1 rounded-pill btnFinal" onclick="jugador1()">¿Quieres jugar de
+                nuevo?</button>
+        </div>
+
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true"
+        role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h5 class="modal-title" id="pokemonLabelTitle">Modal title</h5>
+                    <button type="button" class="close" aria-label="Close" onclick="closeModal()">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img class="card-img-top" src="img-to-remplace" id="img_popup" alt="Card image cap">
+                    <p class="pok-description" id="pok-description-popup">Descripcion</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Cerrar</button>
+                    <button type="button" class="btn btn-danger" id="btnSelecJugador1"
+                        onclick="selectPokeJugador1()">Aceptar Pokemon Jugador 1</button>
+                    <button type="button" class="btn btn-info" id="btnSelecJugador2" onclick="pelea()">Aceptar Pokemon
+                        jugador 2</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop fade show" id="backdrop" style="display: none;"></div>
+    ​
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+    <script src="pokemon.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
